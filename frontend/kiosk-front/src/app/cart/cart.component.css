@@ -1,0 +1,10 @@
+#hide-div{
+    height: 0%; 
+    width: 100%;
+    position: absolute; 
+}
+
+#cart-click{
+    float: right;
+    margin-right: 5%;
+}

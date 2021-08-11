@@ -1,0 +1,17 @@
+#page-cover{
+    height: 100%; 
+    width: 100%; 
+    position: absolute; 
+    z-index: -100;
+}
+
+#main-content{
+    margin-top: 55%;
+}
+
+.cart-tooltip .arrow::before{
+    border-top-color: lightgreen;
+}
+.cart-tooltip .tooltip-inner{
+    background-color: lightgreen;
+}

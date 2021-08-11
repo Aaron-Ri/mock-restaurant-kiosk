@@ -1,0 +1,31 @@
+<div id="page-cover">
+    
+    <div  class="modal-dialog">
+        <div  id="main-content" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Receipt</h5>
+                <a>
+                    <button type="button" class="btn btn-info" (click)="backButton()">Back</button>
+                </a>
+            </div>
+            <div  class="modal-body">
+                <div class="container">
+                    <div class="">
+                        <div *ngFor="let food of cartItems" class="ccenter">
+                            <p>{{food.foodName}} -- ${{food.foodPrice}} <button (click)="removeItemFromcart(food)" class="btn btn-danger" style="font-weight:800;">X</button></p>
+                        </div>
+                        <hr/>
+                        <p *ngIf="cartItems.length > 0" class="ccenter">Order SubTotal: ${{orderSubTotal.toFixed(2)}}</p>
+                        <p *ngIf="cartItems.length > 0" class="ccenter">Order Tax: ${{orderTax.toFixed(2)}}</p>
+                        <p *ngIf="cartItems.length > 0" class="ccenter">Order GrandTotal: ${{orderGrandTotal.toFixed(2)}}</p>
+                        <hr/>
+                        <p class="ccenter">
+                            <button (click)="submitOrder()" class="btn btn-success">Pay For Order</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

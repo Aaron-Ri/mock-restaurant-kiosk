@@ -1,0 +1,26 @@
+#page-cover{
+    height: 100%; 
+    width: 100%; 
+    position: absolute; 
+    z-index: -100;
+}
+
+#main-content{
+    margin-top: 55%;
+}
+
+.ccenter{
+    text-align: center;
+}
+
+.size-large{
+    font-size: 1.75em;
+}
+
+.size-semi-large{
+    font-size: 1.45em;
+}
+
+.italic{
+    font-style: italic;
+}

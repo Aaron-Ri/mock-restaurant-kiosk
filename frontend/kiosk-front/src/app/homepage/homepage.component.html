@@ -1,0 +1,21 @@
+<div id="page-cover">    
+
+
+    <div id="main-content" class="modal-dialog">
+        <div  id="menu-content" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Welcome to our Restaurant, please make a selection</h5>
+            </div>
+            <div id="menu-content" class="modal-body">
+                <button id="button-alignment" type="button" class="btn btn-primary btn-lg" (click)="gotoMenu()">Place Order</button>
+                <button id="button-alignment-2" type="button" class="btn btn-primary btn-lg" [disabled]="cartItems.length == 0" (click)="gotoReceipt()">checkout</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+</div>

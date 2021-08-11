@@ -1,0 +1,35 @@
+<div id="page-cover">
+    
+    <ng-template #addedToCart style="width: -3em;">
+        <span class="alert alert-success" style="width: 0em;">Food Added To Order!</span>
+    </ng-template>
+
+    <div  class="modal-dialog">
+        <div  id="main-content" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Menu</h5>
+                <a routerLink="/homepage">
+                    <button type="button" class="btn btn-info" >Back</button>
+                </a>
+            </div>
+            <div  class="modal-body">
+                <div class="container">
+                    <div class="row row-cols-2">
+                        <div *ngFor="let food of foodItems">
+                            <ng-template #foodPop>
+                                <p>{{food.foodDescription}}</p>
+                                <div class="modal-footer"><span style="left: -5em; font-weight: 400;">Price: ${{food.foodPrice}}  </span><button class="btn btn-info" ngbTooltip="Added To Order!" triggers="click" tooltipClass="cart-tooltip" placement="bottom" (click)="addItemToCart(food)">add to order</button></div>
+                            </ng-template>
+                            <p type="button" class="alert alert-danger"  [autoClose]="'outside'"
+                                [ngbPopover]="foodPop" popoverTitle="{{food.foodName}}">
+                                {{food.foodName}}
+                            </p>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,25 @@
+server:
+  port: 9011
+
+spring:
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:fooddb
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+
+#Keycloak Configuration
+keycloak:
+  #keycloak server is hosted on port 8080
+  auth-server-url: http://localHost:8080/auth/
+  realm: kiosk
+  resource: kiosk-backend
+  use-resource-role-mappings: true
+  ssl-required: external
+  bearer-only: true
