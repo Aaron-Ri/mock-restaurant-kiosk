@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kiosk.exceptions.NoSuchFoodException;
+import com.kiosk.exceptions.NoSuchOrderException;
 import com.kiosk.model.Food;
 import com.kiosk.service.FoodService;
 
@@ -34,15 +36,15 @@ public class foodController {
 	
 	@CrossOrigin("*")
 	@GetMapping("/single")
-	@RolesAllowed({"kiosk-terminal","kiosk-admin"})
+//	@RolesAllowed({"kiosk-terminal","kiosk-admin"})
 	@ResponseBody
-	public Food get(@RequestParam long id) {
+	public Food get(@RequestParam long id) throws NoSuchFoodException {
 //		System.out.println("requesting single food item by the id of: "+id);
 		return foodService.getFoodById(id);
 	}
 	
 	@GetMapping("/all")
-	@RolesAllowed({"kiosk-terminal","kiosk-admin"})
+//	@RolesAllowed({"kiosk-terminal","kiosk-admin"})
 	@ResponseBody
 	public List<Food> getAllFood(){
 //		System.out.println("inside send all food controller");
@@ -50,7 +52,7 @@ public class foodController {
 	}
 	
 	@PostMapping("/new")
-	@RolesAllowed({"kiosk-admin"})
+//	@RolesAllowed({"kiosk-admin"})
 	@ResponseBody
 	public Food insertEvent(@RequestBody Food food) {
 		Food insertedFood;
@@ -59,9 +61,9 @@ public class foodController {
 	}
 	
 	@DeleteMapping("/remove")
-	@RolesAllowed({"kiosk-admin"})
+//	@RolesAllowed({"kiosk-admin"})
 	@ResponseBody
-	public void deleteFood(@RequestBody Food food) {
+	public void deleteFood(@RequestBody Food food) throws NoSuchFoodException{
 		foodService.removeFood(food);;
 	}
 	

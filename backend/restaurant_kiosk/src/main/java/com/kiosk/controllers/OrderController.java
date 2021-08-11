@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kiosk.exceptions.NoSuchOrderException;
 import com.kiosk.model.Order;
 import com.kiosk.service.OrderService;
 
@@ -33,7 +34,7 @@ public class OrderController {
 	
 	@CrossOrigin("*")
 	@GetMapping("/single")
-	@RolesAllowed({"kiosk-admin"})
+//	@RolesAllowed({"kiosk-admin"})
 	@ResponseBody
 	public Order get(@RequestParam long id) {
 //		System.out.println("requesting single order by the id of: "+id);
@@ -41,27 +42,26 @@ public class OrderController {
 	}
 	
 	@GetMapping("/all")
-	@RolesAllowed({"kiosk-admin"})
+//	@RolesAllowed({"kiosk-admin"})
 	@ResponseBody
 	public List<Order> getAllOrders(){
-		System.out.println("inside get all  odrdercontroller");
+//		System.out.println("inside get all  odrdercontroller");
 		return orderService.getAllOrders();
 	}
 	
 	@PostMapping("/new")
-	@RolesAllowed({"kiosk-terminal","kiosk-admin"})
+//	@RolesAllowed({"kiosk-terminal","kiosk-admin"})
 	@ResponseBody
 	public Order insertEvent(@RequestBody Order order) {
-//		System.out.println("inside orderController, trying to create new order|||||||||||||||||||||||||||||||||||||||||||||||||||");
 		Order insertedOrder;
 		insertedOrder = orderService.insertOrder(order);
 		return insertedOrder;
 	}
 	
 	@DeleteMapping("/remove")
-	@RolesAllowed({"kiosk-admin"})
+//	@RolesAllowed({"kiosk-admin"})
 	@ResponseBody
-	public void deleteOrder(@RequestBody Order order) {
+	public void deleteOrder(@RequestBody Order order) throws NoSuchOrderException{
 		orderService.removeOrder(order);;
 	}
 	
